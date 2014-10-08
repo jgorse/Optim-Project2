@@ -6,6 +6,8 @@ int main()
 {
 	deck test;
 
+	//test.~deck();
+	//test.deck::~deck();
 	cout << test << "\n";
 
 	system("pause");

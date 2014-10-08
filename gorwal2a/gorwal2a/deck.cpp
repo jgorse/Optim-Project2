@@ -9,13 +9,17 @@ using namespace std;
 ostream& operator<< (ostream& ostr, const deck& d)
 {
 	node <card> *currentNode = d.front;
-	if (currentNode != 0)
+	if (currentNode != 0 && currentNode->next != NULL)
 	{
 		while (currentNode->next != 0){
 			cout << currentNode->nodeValue << endl;
 			currentNode = currentNode->next;
 		}
 		cout << currentNode->nodeValue; //print the last card
+	}
+	else 
+	{
+		cout << "Deck does not exist.\n";
 	}
 	return ostr;
 }
@@ -56,5 +60,46 @@ deck::deck()
 				front = newCard;
 			}
 		}
+	}
+}
+
+deck::~deck()
+{
+	node <card> *currentNode = front;
+	node <card> *nextNode = front;
+	if (currentNode != 0)
+	{
+		while (currentNode->next != 0){
+			nextNode = currentNode->next;
+			delete currentNode;
+			currentNode = nextNode;
+		}
+		delete currentNode; //print the last card
+		front = NULL;
+	}
+}
+
+node <card>*deck::deal(deck& d)
+{
+	node <card>* removedCard = d.front;
+	d.front = removedCard->next;
+	return d.front;
+}
+
+void deck::replace(deck& d, node <card>* newCard)
+{
+	node <card> *currentNode = d.front;
+	if (currentNode != 0 && currentNode->next != NULL)
+	{
+		//go to end of deck
+		while (currentNode->next != 0){
+			currentNode = currentNode->next;
+		}
+		//connect last card to new card
+		currentNode->next = newCard;
+	}
+	else 
+	{
+		cout << "Deck does not exist.\n";
 	}
 }
