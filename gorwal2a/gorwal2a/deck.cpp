@@ -5,18 +5,17 @@
 
 using namespace std;
 
-//friend deck ostream& operator << (ostream& os, node <card> *front)
-//friend ostream& operator << (ostream& ostr, const deck& front)
-ostream& operator << (ostream& ostr, const deck& d)
+//overloaded << operator, prints values of all cards in the deck.
+ostream& operator<< (ostream& ostr, const deck& d)
 {
 	node <card> *currentNode = d.front;
 	if (currentNode != 0)
 	{
 		while (currentNode->next != 0){
-			cout << currentNode->nodeValue;
+			cout << currentNode->nodeValue << endl;
 			currentNode = currentNode->next;
 		}
-		cout << currentNode->next;
+		cout << currentNode->nodeValue; //print the last card
 	}
 	return ostr;
 }
@@ -25,8 +24,9 @@ deck::deck()
 {
 	char suit;
 	int count = 0;
-	for (int i = 0; i <= 3; i++){
-		for (int j = 13; j >= 0; j--){
+	//make the deck in reverse (put down S13 first and stack cards on top)
+	for (int i = 3; i >= 0; i--){
+		for (int j = 13; j > 0; j--){
 			switch (i)
 			{
 				case 0:
@@ -45,12 +45,16 @@ deck::deck()
 			node <card> *newCard = new node<card>;
 			newCard->nodeValue.setValue(j);
 			newCard->nodeValue.setSuit(suit);
-			if (j == 13 && suit == 'C'){
+			//set the last card's next value to 0
+			if (j == 13 && suit == 'S'){
+				front = newCard;
 				newCard->next = 0;
+			}
+			//connect card to the one below it, set the newest card as the top of the deck
+			else{ 
+				newCard->next = front;
 				front = newCard;
 			}
-			front->next = newCard;
-			front = newCard;
 		}
 	}
 }
