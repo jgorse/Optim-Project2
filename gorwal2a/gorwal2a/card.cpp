@@ -5,7 +5,7 @@
 //Empty constructor, shouldnt be called
 card::card()
 {
-	cout<<"This shouldn't be called!\n";
+	
 }
 
 //Constructor
