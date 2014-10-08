@@ -7,10 +7,9 @@ using namespace std;
 
 //friend deck ostream& operator << (ostream& os, node <card> *front)
 //friend ostream& operator << (ostream& ostr, const deck& front)
-ostream& operator << (ostream& ostr, node <card> *front)
+ostream& operator << (ostream& ostr, const deck& d)
 {
-	node <card> *currentNode;
-	currentNode = front;
+	node <card> *currentNode = d.front;
 	if (currentNode != 0)
 	{
 		while (currentNode->next != 0){
@@ -19,6 +18,7 @@ ostream& operator << (ostream& ostr, node <card> *front)
 		}
 		cout << currentNode->next;
 	}
+	return ostr;
 }
 
 deck::deck()
@@ -42,11 +42,13 @@ deck::deck()
 					suit = 'S';
 					break;
 			}
-			node <card> *newCard = new node<card> (j, suit);
+			node <card> *newCard = new node<card>;
 			newCard->nodeValue.setValue(j);
 			newCard->nodeValue.setSuit(suit);
-			if (j == 13 && suit == 'C')
+			if (j == 13 && suit == 'C'){
 				newCard->next = 0;
+				front = newCard;
+			}
 			front->next = newCard;
 			front = newCard;
 		}

@@ -11,6 +11,6 @@ public:
 
 private:
 	node <card> *front;
-	friend ostream& operator << (ostream& ostr, const deck& front);
+	friend ostream& operator << (ostream& ostr, const deck& d);
 
-}
+};
