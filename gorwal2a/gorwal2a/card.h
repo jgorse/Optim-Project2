@@ -9,7 +9,7 @@ class card
 {
 private:
 	int value;
-	char suit; //enforce "Spade", "Diamond", "Club", or "Heart" in constructor
+	char suit; //enforce "S", "D", "C", or "H" in constructor
 
 public:
 	//constructors

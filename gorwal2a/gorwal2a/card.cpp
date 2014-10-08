@@ -42,5 +42,7 @@ char card::getSuit()
 //Overloaded << operator to print 'card' object
 ostream& operator << (ostream& os, const card& c)
 {
-	cout << "\nSuit: " << c.suit << "\nValue: " << c.value << "\n";
+	cout << "Suit: " << c.suit << ", Value: " << c.value;
+
+	return os;
 }
