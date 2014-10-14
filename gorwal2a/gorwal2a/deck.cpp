@@ -79,11 +79,11 @@ deck::~deck()
 	}
 }
 
-node <card>*deck::deal(deck& d)
+card deck::deal()
 {
-	node <card>* removedCard = d.front;
-	d.front = removedCard->next;
-	return d.front;
+	node <card>* removedCard = front;
+	front = removedCard->next;
+	return removedCard->nodeValue;
 }
 
 void deck::replace(deck& d, node <card>* newCard)

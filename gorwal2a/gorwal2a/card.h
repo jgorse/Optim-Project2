@@ -15,6 +15,7 @@ public:
 	//constructors
 	card(int v, char s);
 	card();
+	card(card& rhs); //copy constructor
 	
 	//mutators
 	void setValue(int v);
@@ -24,9 +25,9 @@ public:
 	int getValue();
 	char getSuit();
 
-	//friend overloaded operator
+	//overloaded operators
 	friend ostream& operator << (ostream& os, const card& c);
-
+	card& operator = (const card& rhs);
 };
 
 #endif //CARD_H
