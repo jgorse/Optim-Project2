@@ -10,7 +10,7 @@ int playflip(deck* playerDeck)
 	int Choice = -1;
 	
 	cout << "The original deck is: \n" << *playerDeck << "\n";//Debug print
-	cout << "\n\nNow we shuffle the deck...\n";
+	cout << "\n\nNow we shuffle the deck...\n\n";
 
 	for(int i=0; i<3; i++)
 	{
