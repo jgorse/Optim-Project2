@@ -9,16 +9,16 @@ int playflip(deck* playerDeck)
 	int score = 0;
 	int Choice = -1;
 	
-	cout << "The original deck is: \n" << playerDeck << "\n";//Debug print
+	cout << "The original deck is: \n" << *playerDeck << "\n";//Debug print
 	cout << "\n\nNow we shuffle the deck...\n";
 
 	for(int i=0; i<3; i++)
 	{
-		//playerDeck.shuffle();
+		playerDeck->shuffle();
 	}
 
 	//Debug print
-	cout << "The shuffled deck is: \n"<< playerDeck << "\n\n\n";
+	cout << "The shuffled deck is: \n"<< *playerDeck << "\n\n\n";
 
 	cout << "Now we draw a hand for the player.\n";
 	vector <card> hand;
@@ -28,7 +28,7 @@ int playflip(deck* playerDeck)
 	}
 
 	//Debug print
-	cout << "\n\nThe rest of the deck is:\n" << playerDeck << "\n\n";
+	cout << "\n\nThe rest of the deck is:\n" << *playerDeck << "\n\n";
 
 	//Debug print
 	cout << "The player's hand is: \n";
@@ -100,7 +100,6 @@ int main()
 	int score = playflip(&test);
 	
 	cout << "\n\nSCORE: " << score << "\n";
-
 
 	system("pause");
 

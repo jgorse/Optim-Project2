@@ -1,13 +1,12 @@
-﻿Build started 10/8/2014 11:35:30 AM.
+﻿Build started 10/14/2014 8:37:53 PM.
      1>Project "Z:\Win7Files\Documents\GitHub\Optim-Project2\gorwal2a\gorwal2a\gorwal2a.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\gorwal2a.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt deck.cpp main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt deck.cpp
          deck.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         main.cpp
+     1>z:\win7files\documents\github\optim-project2\gorwal2a\gorwal2a\deck.cpp(120): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>z:\win7files\documents\github\optim-project2\gorwal2a\gorwal2a\deck.cpp(139): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
        ManifestResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\gorwal2a.exe.embed.manifest.res" Debug\gorwal2a_manifest.rc 
        Link:
@@ -31,4 +30,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.79
+Time Elapsed 00:00:11.61
