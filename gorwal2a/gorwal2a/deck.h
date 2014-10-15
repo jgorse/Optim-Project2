@@ -22,7 +22,7 @@ public:
 
 	void deck::replace(deck& d, node <card>* newCard);
 
-	node <card>* deck::shuffle();
+	void deck::shuffle();
 
 private:
 	//top card of the deck

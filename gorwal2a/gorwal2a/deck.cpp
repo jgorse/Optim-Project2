@@ -107,11 +107,12 @@ void deck::replace(deck& d, node <card>* newCard)
 	}
 }
 
-node <card>* deck::shuffle()
-{
+void deck::shuffle()
+{	
 	//create newhead pointer
 	node <card> *newhead;
-	//create newcurrent, oldcurrent pointer pointer
+	//create newcurrent, oldcurrent pointer
+
 	node <card> * newcurrent;
 	node <card> * oldcurrent;
 	node <card> * previous;
@@ -127,18 +128,21 @@ node <card>* deck::shuffle()
 	}
 	//This sets the new head to a random element in the old list
 	newhead = oldcurrent;
-        //delete oldcurrent from the old list to avoid dulicates
+    //delete oldcurrent from the old list to avoid dulicates
 	previous->next = oldcurrent->next;
-	
+	oldcurrent->next = NULL;
+
 	//set the current pointers to heads of both lists
-	oldcurrent = front;
+	
 	newcurrent = newhead;
 	for(int i=51; i>0; i--)
 	{
+		oldcurrent = front;
+		previous = front;
 		//get random number
 		std::srand(time(0));
-		randomnum = rand() % 52;
-		for(int j=randomnum; j<i; j++)
+		randomnum = rand() % i;
+		for(int j=0; j<randomnum; j++)
 		{
 			if (oldcurrent->next != NULL){
 			//move to random'th item in old list
@@ -155,7 +159,13 @@ node <card>* deck::shuffle()
 		
 		//delete oldcurrent from old list to avoid duplicates
 		previous->next = oldcurrent->next;
-	}
 
-	return newhead;
+		//-newcurrent->next = NULL;
+
+		if(randomnum == 0)
+			front = front->next;
+	}
+	newcurrent->next = NULL;
+	front = newhead;
+	
 }
